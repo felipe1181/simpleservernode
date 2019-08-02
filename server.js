@@ -19,18 +19,9 @@ mongoose.connect(
 
 //require models 
 requireDir('./src/models');
-const Product = mongoose.model('Product');
 
-
-app.get('/',function(req,res){
-    Product.create({
-        title:"NodeJs",
-        description:"Node is a better",
-        url:"www.instagram.com/felipef1181"
-    });
-
-    res.send('Server running');
-});
+//create routes
+app.use('/api',require('./src/routes'));
 
 //open server in 3001 port
 app.listen(3001);
